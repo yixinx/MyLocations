@@ -78,7 +78,13 @@ class CurrentLocationViewController: UIViewController , CLLocationManagerDelegat
             return
         }
         
-        startLocationManager()
+        if updatingLocation{
+            stopLocationManager()
+        }else{
+            location = nil
+            lastLocationError = nil
+            startLocationManager()
+        }
         updateLabels()
         configureGetButton()
     }

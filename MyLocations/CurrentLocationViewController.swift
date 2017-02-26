@@ -35,6 +35,7 @@ class CurrentLocationViewController: UIViewController , CLLocationManagerDelegat
         
         stopLocationManager()
         updateLabels()
+        configureGetButton()
     }
     
     func locationManager(_ manager: CLLocationManager,
@@ -42,9 +43,27 @@ class CurrentLocationViewController: UIViewController , CLLocationManagerDelegat
         let newLocation = locations.last!
         print("didUpdateLocations \(newLocation)")
         
-        location = newLocation
-        lastLocationError = nil
-        updateLabels()
+        // 1
+        if newLocation.timestamp.timeIntervalSinceNow < -5 {
+            return
+        }
+        // 2
+        if newLocation.horizontalAccuracy < 0 {
+            return
+        }
+        // 3
+        if location == nil || location!.horizontalAccuracy > newLocation.horizontalAccuracy {
+            // 4
+            lastLocationError = nil
+            location = newLocation
+            updateLabels()
+            // 5
+            if newLocation.horizontalAccuracy <= locationManager.desiredAccuracy{
+                print("*** We're done!")
+                stopLocationManager()
+                configureGetButton()
+            }
+        }
     }
     
     @IBAction func getLocation() {
@@ -61,11 +80,13 @@ class CurrentLocationViewController: UIViewController , CLLocationManagerDelegat
         
         startLocationManager()
         updateLabels()
+        configureGetButton()
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         updateLabels()
+        configureGetButton()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -125,6 +146,14 @@ class CurrentLocationViewController: UIViewController , CLLocationManagerDelegat
             locationManager.stopUpdatingLocation()
             locationManager.delegate = nil
             updatingLocation = false
+        }
+    }
+    
+    func configureGetButton(){
+        if updatingLocation{
+            getButton.setTitle("Stop", for: .normal)
+        }else{
+            getButton.setTitle("Get MyLocation", for: .normal)
         }
     }
 }

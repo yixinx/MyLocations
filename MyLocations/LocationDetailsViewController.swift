@@ -34,10 +34,7 @@ class LocationDetailsViewController: UITableViewController{
         let hud = HudView.hud(inView: navigationController!.view, animated: true)
         hud.text = "Tagged"
         let delayInSeconds = 0.6
-        DispatchQueue.main.asyncAfter(deadline: .now() + delayInSeconds, execute:
-            {
-                self.dismiss(animated: true, completion: nil)
-        })
+        afterDelay(delayInSeconds, closure: {self.dismiss(animated: true, completion: nil)})
     }
     
     @IBAction func cancel(){

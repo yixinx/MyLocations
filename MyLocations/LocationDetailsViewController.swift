@@ -30,6 +30,8 @@ class LocationDetailsViewController: UITableViewController{
     
     
     @IBAction func done(){
+        let hud = HudView.hud(inView: navigationController!.view, animated: true)
+        hud.text = "Tagged"
         dismiss(animated: true, completion: nil)
     }
     

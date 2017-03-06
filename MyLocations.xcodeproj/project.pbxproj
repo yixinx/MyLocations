@@ -29,8 +29,8 @@
 		BF42A78E1E68F4DF0093A277 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF42A7901E68FA310093A277 /* Functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		BF42A7931E6A9D5B0093A277 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
-		BF42A79B1E6AA0D70093A277 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataClass.swift"; path = "MyLocations/Location+CoreDataClass.swift"; sourceTree = "<group>"; };
-		BF42A79C1E6AA0D70093A277 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Location+CoreDataProperties.swift"; path = "MyLocations/Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		BF42A79B1E6AA0D70093A277 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
+		BF42A79C1E6AA0D70093A277 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		BF431F051E5D726C00250FD5 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF431F081E5D726C00250FD5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF431F0A1E5D726C00250FD5 /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
@@ -54,8 +54,6 @@
 		BF431EFC1E5D726C00250FD5 = {
 			isa = PBXGroup;
 			children = (
-				BF42A79B1E6AA0D70093A277 /* Location+CoreDataClass.swift */,
-				BF42A79C1E6AA0D70093A277 /* Location+CoreDataProperties.swift */,
 				BF431F071E5D726C00250FD5 /* MyLocations */,
 				BF431F061E5D726C00250FD5 /* Products */,
 			);
@@ -84,6 +82,8 @@
 				BF42A78C1E68F1DB0093A277 /* HudView.swift */,
 				BF42A7901E68FA310093A277 /* Functions.swift */,
 				BF42A7921E6A9D5B0093A277 /* DataModel.xcdatamodeld */,
+				BF42A79B1E6AA0D70093A277 /* Location+CoreDataClass.swift */,
+				BF42A79C1E6AA0D70093A277 /* Location+CoreDataProperties.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";

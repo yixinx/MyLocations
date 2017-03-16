@@ -30,13 +30,31 @@ class LocationDetailsViewController: UITableViewController{
     var placemark: CLPlacemark?
     var categoryName =  "No Category"
     var managedObjectContext: NSManagedObjectContext!
+    var date = Date()
     
     
     @IBAction func done(){
-        let hud = HudView.hud(inView: navigationController!.view, animated: true)
-        hud.text = "Tagged"
-        let delayInSeconds = 0.6
-        afterDelay(delayInSeconds, closure: {self.dismiss(animated: true, completion: nil)})
+        let hudView = HudView.hud(inView: navigationController!.view, animated: true)
+        hudView.text = "Tagged"
+        
+        let location = Location(context: managedObjectContext)
+
+        location.category = categoryName
+        location.placemark = placemark
+        location.date = date
+        location.longitude = coordinate.longitude
+        location.latitude = coordinate.latitude
+        location.locationDescription = descriptionTextView.text
+        
+        do{
+            try managedObjectContext.save()
+            let delayInSeconds = 0.6
+            afterDelay(delayInSeconds){
+                self.dismiss(animated: true, completion: nil)
+            }
+        }catch{
+                fatalError("Error: \(error)")
+        }
     }
     
     @IBAction func cancel(){
@@ -64,7 +82,7 @@ class LocationDetailsViewController: UITableViewController{
             addressLabel.text = "No Address Found"
         }
         
-        dateLabel.text = format(date: Date())
+        dateLabel.text = format(date: date)
         
         //send message to hideKeyboard when a tap is recognized anywhere in the table
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))

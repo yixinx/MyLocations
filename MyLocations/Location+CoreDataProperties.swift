@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.swift
 //  MyLocations
 //
-//  Created by Yixin Xue on 3/3/17.
+//  Created by Yixin Xue on 3/15/17.
 //  Copyright © 2017 Yixin Xue. All rights reserved.
 //
 
@@ -17,11 +17,11 @@ extension Location {
         return NSFetchRequest<Location>(entityName: "Location");
     }
 
-    @NSManaged public var latitude: Double
-    @NSManaged public var longitude: Double
-    @NSManaged public var date: Date
-    @NSManaged public var locationDescription: String
     @NSManaged public var category: String
+    @NSManaged var date: Date
+    @NSManaged public var latitude: Double
+    @NSManaged public var locationDescription: String
+    @NSManaged public var longitude: Double
     @NSManaged public var placemark: CLPlacemark?
 
 }

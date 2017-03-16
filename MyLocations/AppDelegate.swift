@@ -5,9 +5,8 @@
 //  Created by Yixin Xue on 2/21/17.
 //  Copyright © 2017 Yixin Xue. All rights reserved.
 //
-
-import UIKit
 import CoreData
+import UIKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

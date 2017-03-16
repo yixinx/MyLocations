@@ -9,6 +9,10 @@
 import Foundation
 import Dispatch
 
+let applicationDocumentsDirectory: URL = {
+    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+    return paths[0]
+}()
 
 func afterDelay(_ seconds: Double, closure: @escaping () -> ()) {
     //The annotation @escaping is necessary for closures that are not performed immediately, 

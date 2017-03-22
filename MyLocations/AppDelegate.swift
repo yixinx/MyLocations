@@ -37,6 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
             currentLocationViewController.managedObjectContext = managedObjectContext
             locationsViewController.managedObjectContext = managedObjectContext
+            let _ = locationsViewController.view
         }
         
         print(applicationDocumentsDirectory)
